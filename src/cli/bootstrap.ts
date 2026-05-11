@@ -1,4 +1,4 @@
-#!/usr/bin/env node
+#!/usr/bin/env -S node --no-warnings
 import { config as loadEnv } from "dotenv";
 import { Command } from "commander";
 import chalk from "chalk";
