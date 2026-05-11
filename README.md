@@ -1,4 +1,4 @@
-# clawj
+# jiraclaw
 
 CLI for **Jira**, **Tempo**, and local dev context. Planning and summaries call **ZeroClaw** (`zeroclaw agent -m "…"`); Jira/Tempo run locally with your credentials.
 
@@ -11,7 +11,7 @@ CLI for **Jira**, **Tempo**, and local dev context. Planning and summaries call 
 ## Install (local / dev)
 
 ```bash
-git clone <repo> && cd clawj-local
+git clone <repo> && cd jiraclaw
 npm install
 npm run build
 npm link   # or: node dist/cli/bootstrap.js
@@ -20,7 +20,7 @@ npm link   # or: node dist/cli/bootstrap.js
 ## Global npm install
 
 ```bash
-npm install -g clawj
+npm install -g jiraclaw
 ```
 
 Publish: bump `version` in `package.json`, `npm login`, `npm publish --access public`.
@@ -34,46 +34,46 @@ Publish: bump `version` in `package.json`, `npm login`, `npm publish --access pu
 | `JIRA_API_TOKEN` | [API token](https://id.atlassian.com/manage-profile/security/api-tokens) |
 | `TEMPO_API_TOKEN` | Tempo Cloud bearer token |
 | `TEMPO_BASE_URL` | Default `https://api.tempo.io/4` |
-| `CLAWJ_SECRET` | Passphrase for encrypted token store under `~/.clawj/secrets.enc` |
+| `JIRACLAW_SECRET` | Passphrase for encrypted token store under `~/.jiraclaw/secrets.enc` |
 | `ZEROCLAW_BIN` | Optional path/name for ZeroClaw executable |
 
 `.env` in the current directory is loaded automatically.
 
 ## Encrypted token storage
 
-1. Choose a strong `CLAWJ_SECRET` in your environment.
+1. Choose a strong `JIRACLAW_SECRET` in your environment.
 2. Run:
 
 ```bash
-clawj config set-jira-url https://your.atlassian.net
-clawj config set-jira-token YOUR_JIRA_API_TOKEN
-clawj config set-tempo-token YOUR_TEMPO_TOKEN
+jiraclaw config set-jira-url https://your.atlassian.net
+jiraclaw config set-jira-token YOUR_JIRA_API_TOKEN
+jiraclaw config set-tempo-token YOUR_TEMPO_TOKEN
 ```
 
-Tokens are encrypted at rest; they are **never** printed by `clawj`.
+Tokens are encrypted at rest; they are **never** printed by `jiraclaw`.
 
 ## Usage
 
 Interactive menu:
 
 ```bash
-clawj
+jiraclaw
 ```
 
 Natural language (ZeroClaw classifies intent; you confirm before Tempo writes):
 
 ```bash
-clawj add today's hours in tempo
-clawj log my work
-clawj create jira task for API optimization
-clawj update ABC-123 status to In Progress
+jiraclaw add today's hours in tempo
+jiraclaw log my work
+jiraclaw create jira task for API optimization
+jiraclaw update ABC-123 status to In Progress
 ```
 
 Other commands:
 
 ```bash
-clawj today
-clawj search 'assignee = currentUser() AND updated >= -7d'
+jiraclaw today
+jiraclaw search 'assignee = currentUser() AND updated >= -7d'
 ```
 
 ## Architecture
@@ -83,7 +83,7 @@ src/
   agent/       ZeroClaw subprocess + plan parsing
   cli/         Commander bootstrap + interactive menu
   commands/    Jira/Tempo flows + confirmations
-  config/      ~/.clawj config + encrypted secrets
+  config/      ~/.jiraclaw config + encrypted secrets
   jira/        REST v3 client
   tempo/       REST v4 client
   memory/      SQLite (node:sqlite)

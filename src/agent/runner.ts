@@ -3,7 +3,7 @@ import { safeParsePlan } from "./fallback-plan.js";
 import { runZeroclawAgent } from "./zeroclaw.js";
 import type { Plan } from "./plan-schema.js";
 
-const PLAN_INSTRUCTION = `You are clawj planner. Output ONLY valid JSON (no prose) with keys:
+const PLAN_INSTRUCTION = `You are jiraclaw planner. Output ONLY valid JSON (no prose) with keys:
 intent: one of log_hours|create_ticket|update_ticket|show_today_logs|list_my_tickets|list_tickets_under|summarize_work|unknown
 ticketKey: optional Jira key PROJ-123 — uppercase project prefix and digits after hyphen. If the user writes diol 5, diol-5, or similar, normalize to DIOL-5. Omit if they name no issue.
 hours: optional number

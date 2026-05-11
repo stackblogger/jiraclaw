@@ -1,6 +1,6 @@
 import { createCipheriv, createDecipheriv, randomBytes, scryptSync } from "node:crypto";
 
-const SALT = "clawj-v1";
+const SALT = "jiraclaw-v1";
 const TAG_LEN = 16;
 
 function keyFromPassphrase(passphrase: string): Buffer {

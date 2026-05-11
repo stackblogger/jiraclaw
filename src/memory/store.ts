@@ -1,15 +1,15 @@
 import { DatabaseSync } from "node:sqlite";
 import { existsSync, mkdirSync } from "node:fs";
 import { dirname } from "node:path";
-import { CLAWJ_DB } from "../utils/paths.js";
+import { JIRACLAW_DB } from "../utils/paths.js";
 
 let db: DatabaseSync | null = null;
 
 export function getDb(): DatabaseSync {
   if (db) return db;
-  const dir = dirname(CLAWJ_DB);
+  const dir = dirname(JIRACLAW_DB);
   if (!existsSync(dir)) mkdirSync(dir, { recursive: true });
-  db = new DatabaseSync(CLAWJ_DB);
+  db = new DatabaseSync(JIRACLAW_DB);
   db.exec(`
     CREATE TABLE IF NOT EXISTS ticket_usage (
       ticket_key TEXT NOT NULL,

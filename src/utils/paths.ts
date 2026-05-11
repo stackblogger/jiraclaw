@@ -1,7 +1,7 @@
 import { homedir } from "node:os";
 import { join } from "node:path";
 
-export const CLAWJ_DIR = join(homedir(), ".clawj");
-export const CLAWJ_DB = join(CLAWJ_DIR, "memory.sqlite");
-export const CLAWJ_CONFIG = join(CLAWJ_DIR, "config.json");
-export const CLAWJ_SECRETS = join(CLAWJ_DIR, "secrets.enc");
+export const JIRACLAW_DIR = join(homedir(), ".jiraclaw");
+export const JIRACLAW_DB = join(JIRACLAW_DIR, "memory.sqlite");
+export const JIRACLAW_CONFIG = join(JIRACLAW_DIR, "config.json");
+export const JIRACLAW_SECRETS = join(JIRACLAW_DIR, "secrets.enc");

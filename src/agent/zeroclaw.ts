@@ -1,7 +1,7 @@
 import { spawn } from "node:child_process";
 import { join } from "node:path";
-import { loadAppConfig, ensureClawjDir } from "../config/load.js";
-import { CLAWJ_DIR } from "../utils/paths.js";
+import { loadAppConfig, ensureJiraclawDir } from "../config/load.js";
+import { JIRACLAW_DIR } from "../utils/paths.js";
 
 type AgentJsonPayload = {
   payloads?: { kind?: string; text?: string; body?: string }[];
@@ -25,9 +25,9 @@ function zeroclawCommand(): string {
 
 export async function runZeroclawAgent(prompt: string): Promise<string> {
   const cfg = loadAppConfig();
-  ensureClawjDir();
+  ensureJiraclawDir();
   const sessionId = cfg.zeroclawSessionId.replace(/[^a-zA-Z0-9._-]/g, "_");
-  const sessionStateFile = join(CLAWJ_DIR, `zeroclaw-session-${sessionId}.json`);
+  const sessionStateFile = join(JIRACLAW_DIR, `zeroclaw-session-${sessionId}.json`);
   const cmd = zeroclawCommand();
   const args = ["agent", "--session-state-file", sessionStateFile, "--message", prompt];
   const out = await new Promise<string>((resolve, reject) => {

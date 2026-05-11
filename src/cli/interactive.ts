@@ -13,7 +13,7 @@ export async function runInteractiveMenu(cwd: string): Promise<void> {
     {
       type: "list",
       name: "choice",
-      message: "clawj",
+      message: "jiraclaw",
       choices: [
         { name: "1. Log Hours", value: "1" },
         { name: "2. Create Ticket", value: "2" },

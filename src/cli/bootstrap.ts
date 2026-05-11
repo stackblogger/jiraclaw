@@ -4,13 +4,13 @@ import { Command } from "commander";
 import chalk from "chalk";
 import { runInteractiveMenu } from "./interactive.js";
 import { flowNlCommand, flowSearchJql, flowShowTodayLogs } from "../commands/workflows.js";
-import { ensureClawjDir, loadAppConfig, saveAppConfig, writeSecretField } from "../config/load.js";
+import { ensureJiraclawDir, loadAppConfig, saveAppConfig, writeSecretField } from "../config/load.js";
 
 loadEnv();
 
 const program = new Command();
 program
-  .name("clawj")
+  .name("jiraclaw")
   .description("Jira + Tempo CLI (ZeroClaw-powered planning)")
   .version("0.1.0");
 
@@ -46,7 +46,7 @@ program
     new Command("set-jira-url")
       .argument("<url>", "https://your.atlassian.net")
       .action((url: string) => {
-        ensureClawjDir();
+        ensureJiraclawDir();
         const cfg = loadAppConfig();
         saveAppConfig({ ...cfg, jiraBaseUrl: url });
         console.log(chalk.green("Saved Jira base URL."));
@@ -56,7 +56,7 @@ program
     new Command("set-tempo-url")
       .argument("<url>", "https://api.tempo.io/4")
       .action((url: string) => {
-        ensureClawjDir();
+        ensureJiraclawDir();
         const cfg = loadAppConfig();
         saveAppConfig({ ...cfg, tempoBaseUrl: url });
         console.log(chalk.green("Saved Tempo base URL."));
@@ -64,7 +64,7 @@ program
   )
   .addCommand(
     new Command("set-jira-token")
-      .argument("<token>", "API token (stored encrypted if CLAWJ_SECRET set)")
+      .argument("<token>", "API token (stored encrypted if JIRACLAW_SECRET set)")
       .action((token: string) => {
         writeSecretField("jiraApiToken", token);
         console.log(chalk.green("Stored Jira API token."));

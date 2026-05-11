@@ -1,5 +1,5 @@
 {
-  "name": "clawj",
+  "name": "jiraclaw",
   "version": "0.1.0",
   "description": "CLI for Jira, Tempo, and local work context — powered by ZeroClaw",
   "type": "module",
@@ -7,7 +7,7 @@
     "node": ">=22.14.0"
   },
   "bin": {
-    "clawj": "dist/cli/bootstrap.js"
+    "jiraclaw": "dist/cli/bootstrap.js"
   },
   "files": [
     "dist",
