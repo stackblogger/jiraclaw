@@ -24,9 +24,22 @@
     "jira",
     "tempo",
     "zeroclaw",
-    "worklog"
+    "worklog",
+    "jiraclaw",
+    "claude",
+    "zeroclaw",
+    "openclaw",
+    "openai"
   ],
   "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/stackblogger/jiraclaw.git"
+  },
+  "homepage": "https://github.com/stackblogger/jiraclaw#readme",
+  "bugs": {
+    "url": "https://github.com/stackblogger/jiraclaw/issues"
+  },
   "peerDependencies": {
     "zeroclaw": ">=2026.5.0"
   },

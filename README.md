@@ -11,7 +11,7 @@ CLI for **Jira**, **Tempo**, and local dev context. Planning and summaries call 
 ## Install (local / dev)
 
 ```bash
-git clone <repo> && cd jiraclaw
+git clone https://github.com/stackblogger/jiraclaw.git && cd jiraclaw
 npm install
 npm run build
 npm link   # or: node dist/cli/bootstrap.js
