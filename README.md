@@ -1,6 +1,15 @@
-# jiraclaw
+<h1 align="center">jiraclaw</h1>
 
-CLI for **Jira**, **Tempo**, and local dev context. Planning and summaries call **ZeroClaw** (`zeroclaw agent -m "…"`); Jira/Tempo run locally with your credentials.
+<p align="center">
+  <strong>a lightweight CLI to automate your manual jira tickets management and tempo hours logging.</strong>
+</p>
+
+<p align="center">
+  <a href="https://github.com/stackblogger/jiraclaw/actions/workflows/semgrep.yml"><img src="https://github.com/stackblogger/jiraclaw/actions/workflows/semgrep.yml/badge.svg" alt="Semgrep" /></a>
+  <a href="https://www.npmjs.com/package/jiraclaw"><img src="https://img.shields.io/npm/l/jiraclaw" alt="License" /></a>
+  <a href="https://www.typescriptlang.org/"><img src="https://img.shields.io/badge/TypeScript-3178C6?logo=typescript&logoColor=white" alt="TypeScript" /></a>
+</p>
+
 
 ## Requirements
 
