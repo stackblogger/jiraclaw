@@ -10,7 +10,7 @@ function keyFromPassphrase(passphrase: string): Buffer {
 export function encryptSecret(plaintext: string, passphrase: string): string {
   const key = keyFromPassphrase(passphrase);
   const iv = randomBytes(12);
-  const cipher = createCipheriv("aes-256-gcm", key, iv);
+  const cipher = createCipheriv("aes-256-gcm", key, iv, { authTagLength: TAG_LEN });
   const enc = Buffer.concat([cipher.update(plaintext, "utf8"), cipher.final()]);
   const tag = cipher.getAuthTag();
   return Buffer.concat([iv, tag, enc]).toString("base64");
@@ -22,7 +22,7 @@ export function decryptSecret(payload: string, passphrase: string): string {
   const tag = raw.subarray(12, 12 + TAG_LEN);
   const data = raw.subarray(12 + TAG_LEN);
   const key = keyFromPassphrase(passphrase);
-  const decipher = createDecipheriv("aes-256-gcm", key, iv);
+  const decipher = createDecipheriv("aes-256-gcm", key, iv, { authTagLength: TAG_LEN });
   decipher.setAuthTag(tag);
   return Buffer.concat([decipher.update(data), decipher.final()]).toString("utf8");
 }
