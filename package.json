@@ -1,0 +1,51 @@
+{
+  "name": "clawj",
+  "version": "0.1.0",
+  "description": "CLI for Jira, Tempo, and local work context — powered by ZeroClaw",
+  "type": "module",
+  "engines": {
+    "node": ">=22.14.0"
+  },
+  "bin": {
+    "clawj": "dist/cli/bootstrap.js"
+  },
+  "files": [
+    "dist",
+    "README.md"
+  ],
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "dev": "tsc -p tsconfig.json --watch",
+    "start": "node dist/cli/bootstrap.js",
+    "prepublishOnly": "npm run build"
+  },
+  "keywords": [
+    "cli",
+    "jira",
+    "tempo",
+    "zeroclaw",
+    "worklog"
+  ],
+  "license": "MIT",
+  "peerDependencies": {
+    "zeroclaw": ">=2026.5.0"
+  },
+  "peerDependenciesMeta": {
+    "zeroclaw": {
+      "optional": true
+    }
+  },
+  "dependencies": {
+    "chalk": "^5.4.1",
+    "commander": "^13.1.0",
+    "dotenv": "^16.5.0",
+    "inquirer": "^9.3.7",
+    "ora": "^8.2.0",
+    "zod": "^3.24.4"
+  },
+  "devDependencies": {
+    "@types/inquirer": "^9.0.7",
+    "@types/node": "^22.14.1",
+    "typescript": "^5.8.3"
+  }
+}
